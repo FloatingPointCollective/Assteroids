@@ -16,12 +16,17 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00B9955A1B128DF400A5C623 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995581B128DF400A5C623 /* IOKit.framework */; };
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
-		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
-		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		9BE4D54D9728404FB8CFC77D /* Assteroids_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 278B415E07794D84B61A7319 /* Assteroids_Prefix.pch */; };
-		6030BC6D8B78401D8099AE31 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 734B9F4FFED14184A9949970 /* CinderApp.icns */; };
-		B2BF20ABD7844126AEA7E1F2 /* Resources.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C581EF507E46628967AEC9 /* Resources.h */; };
 		1E2D0337A00F4697B8FCC60B /* AssteroidsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */; };
+		23246FF31C028CCB00AC275E /* POV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23246FF21C028CCB00AC275E /* POV.cpp */; };
+		238FC2121C02854C0020330C /* Earth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2111C02854C0020330C /* Earth.cpp */; };
+		238FC2181C02857C0020330C /* earth.frag in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2131C02857C0020330C /* earth.frag */; };
+		238FC2191C02857C0020330C /* earth.vert in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2141C02857C0020330C /* earth.vert */; };
+		238FC21A1C02857C0020330C /* earthDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2151C02857C0020330C /* earthDiffuse.png */; };
+		238FC21B1C02857C0020330C /* earthMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2161C02857C0020330C /* earthMask.png */; };
+		238FC21C1C02857C0020330C /* earthNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2171C02857C0020330C /* earthNormal.png */; };
+		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		6030BC6D8B78401D8099AE31 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 734B9F4FFED14184A9949970 /* CinderApp.icns */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,15 +40,24 @@
 		00B995581B128DF400A5C623 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		00B995591B128DF400A5C623 /* IOSurface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOSurface.framework; path = System/Library/Frameworks/IOSurface.framework; sourceTree = SDKROOT; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		23246FF21C028CCB00AC275E /* POV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = POV.cpp; path = ../src/POV.cpp; sourceTree = "<group>"; };
+		23246FF41C028CD900AC275E /* POV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = POV.h; path = ../include/POV.h; sourceTree = "<group>"; };
+		238FC2101C0285290020330C /* Earth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Earth.h; path = ../include/Earth.h; sourceTree = "<group>"; };
+		238FC2111C02854C0020330C /* Earth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Earth.cpp; path = ../src/Earth.cpp; sourceTree = "<group>"; };
+		238FC2131C02857C0020330C /* earth.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = earth.frag; path = ../resources/earth.frag; sourceTree = "<group>"; };
+		238FC2141C02857C0020330C /* earth.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = earth.vert; path = ../resources/earth.vert; sourceTree = "<group>"; };
+		238FC2151C02857C0020330C /* earthDiffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earthDiffuse.png; path = ../resources/earthDiffuse.png; sourceTree = "<group>"; };
+		238FC2161C02857C0020330C /* earthMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earthMask.png; path = ../resources/earthMask.png; sourceTree = "<group>"; };
+		238FC2171C02857C0020330C /* earthNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earthNormal.png; path = ../resources/earthNormal.png; sourceTree = "<group>"; };
+		278B415E07794D84B61A7319 /* Assteroids_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Assteroids_Prefix.pch; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		34C581EF507E46628967AEC9 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
+		7299FF26639344499E5F911D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		734B9F4FFED14184A9949970 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CinderApp.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Assteroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assteroids.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; path = ../src/AssteroidsApp.cpp; sourceTree = "<group>"; name = AssteroidsApp.cpp; };
-		34C581EF507E46628967AEC9 /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ../include/Resources.h; sourceTree = "<group>"; name = Resources.h; };
-		734B9F4FFED14184A9949970 /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ../resources/CinderApp.icns; sourceTree = "<group>"; name = CinderApp.icns; };
-		7299FF26639344499E5F911D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; name = Info.plist; };
-		278B415E07794D84B61A7319 /* Assteroids_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = "\"\""; path = Assteroids_Prefix.pch; sourceTree = "<group>"; name = Assteroids_Prefix.pch; };
+		98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.cpp; name = AssteroidsApp.cpp; path = ../src/AssteroidsApp.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +82,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01B97315FEAEA392516A2CEA /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Blocks;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				23246FF21C028CCB00AC275E /* POV.cpp */,
+				238FC2111C02854C0020330C /* Earth.cpp */,
 				98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */,
 			);
 			name = Source;
@@ -124,16 +147,11 @@
 			name = Assteroids;
 			sourceTree = "<group>";
 		};
-		01B97315FEAEA392516A2CEA /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Blocks;
-			sourceTree = "<group>";
-		};
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				23246FF41C028CD900AC275E /* POV.h */,
+				238FC2101C0285290020330C /* Earth.h */,
 				34C581EF507E46628967AEC9 /* Resources.h */,
 				278B415E07794D84B61A7319 /* Assteroids_Prefix.pch */,
 			);
@@ -143,6 +161,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				238FC2131C02857C0020330C /* earth.frag */,
+				238FC2141C02857C0020330C /* earth.vert */,
+				238FC2151C02857C0020330C /* earthDiffuse.png */,
+				238FC2161C02857C0020330C /* earthMask.png */,
+				238FC2171C02857C0020330C /* earthNormal.png */,
 				734B9F4FFED14184A9949970 /* CinderApp.icns */,
 				7299FF26639344499E5F911D /* Info.plist */,
 			);
@@ -184,6 +207,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Assteroids" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -208,7 +233,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				238FC2191C02857C0020330C /* earth.vert in Resources */,
+				238FC21B1C02857C0020330C /* earthMask.png in Resources */,
+				238FC21A1C02857C0020330C /* earthDiffuse.png in Resources */,
+				238FC2181C02857C0020330C /* earth.frag in Resources */,
 				6030BC6D8B78401D8099AE31 /* CinderApp.icns in Resources */,
+				238FC21C1C02857C0020330C /* earthNormal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +249,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23246FF31C028CCB00AC275E /* POV.cpp in Sources */,
+				238FC2121C02854C0020330C /* Earth.cpp in Sources */,
 				1E2D0337A00F4697B8FCC60B /* AssteroidsApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,17 +262,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Assteroids_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Assteroids_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -262,12 +294,12 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Assteroids_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"NDEBUG=1",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Assteroids_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
@@ -284,7 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = "../../cinder_0.9.0_mac";
+				CINDER_PATH = ../../cinder_0.9.0_mac;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				ENABLE_TESTABILITY = YES;
@@ -302,7 +334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CINDER_PATH = "../../cinder_0.9.0_mac";
+				CINDER_PATH = ../../cinder_0.9.0_mac;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
