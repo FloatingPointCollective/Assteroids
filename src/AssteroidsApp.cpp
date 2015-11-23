@@ -1,6 +1,7 @@
 #include "cinder/app/App.h"
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
+#include "cinder/Rand.h"
 
 #include "Roid.h"
 #include "POV.h"
@@ -19,8 +20,7 @@ class AssteroidsApp : public App {
 	void draw() override;
     
     POV               mPov;
-    Roid             mRoid;
-    Roid             mRoid2;
+    Roid             mRoid, mRoid2, mRoid3;
     
 };
 
@@ -35,12 +35,12 @@ void AssteroidsApp::prepareSettings( Settings *settings )
 void AssteroidsApp::setup()
 {
 
-    mRoid = Roid(150);
+    mRoid = Roid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
+    mRoid2 = Roid(50,-100,-100, randVec3(), randFloat(-1,1)/2);
+    mRoid3 = Roid(50,-100,50, randVec3(), randFloat(-1,1)/2);
     
     // Create the camera controller.
     mPov = POV( this, ci::vec3( 0.0f, 0.0f, 1000.0f ), ci::vec3( 0.0f, 0.0f, 0.0f ) );
-
-    
 }
 
 void AssteroidsApp::mouseDown( MouseEvent event )
@@ -52,6 +52,7 @@ void AssteroidsApp::update()
     mPov.update();
     mRoid.update();
     mRoid2.update();
+    mRoid3.update();
 }
 
 void AssteroidsApp::draw()
@@ -65,10 +66,9 @@ void AssteroidsApp::draw()
     
     // Draw roid.
     mRoid.draw();
-    
     mRoid2.draw();
-    
-    
+    mRoid3.draw();
+
     
 }
 

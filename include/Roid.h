@@ -8,7 +8,7 @@
 class Roid {
 public:
 	Roid();
-    Roid(int radius);
+    Roid(int radius, int x, int y, ci::vec3 rotAxis, float rotSpeed);
     void init();
 
 	void update();
@@ -20,13 +20,13 @@ public:
 	//static const int MAX_NUMBER_OF_QUAKES = 1024;
 
 	float mMinMagToRender;
-	float mRadius;
-    float rotation;
+	float mRadius, mX, mY;
+    float mRotSpeed;
     cinder::mat4				mRotation;
    // ci::quat rotation;
 
-	ci::vec3 mLoc;
-	ci::vec3 mLightDir;
+	//ci::vec3 mLoc;
+	ci::vec3 mLightDir, mRotAxis;
 
 	ci::gl::Texture2dRef mTexDiffuse;
 	ci::gl::Texture2dRef mTexNormal;

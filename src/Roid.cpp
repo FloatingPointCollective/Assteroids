@@ -17,12 +17,17 @@
 using namespace ci;
 using namespace ci::app;
 
-Roid::Roid(): mLoc( 0 ), mRadius( 100 ), mMinMagToRender( 2 )
+Roid::Roid(): mRadius( 100 ), mMinMagToRender( 2 )
 {
     init();
 }
 
-Roid::Roid(int radius): mLoc( 0 ), mRadius( radius ), mMinMagToRender( 2 ){
+Roid::Roid(int radius, int x, int y, vec3 rotAxis, float rotSpeed): mRadius( radius ){
+    mX = x;
+    mY = y;
+    mRotSpeed = rotSpeed;
+    mRotAxis = rotAxis;
+    
     init();
 }
 
@@ -43,14 +48,14 @@ void Roid::init()
     earthShader->uniform( "texMask", 2 );
     mEarth = gl::Batch::create( geom::Sphere().radius( mRadius ).subdivisions( 120 ), earthShader );
     
-    rotation = 0;
+    //rotation = 0;
 }
 
 
 void Roid::update()
 {
     // Rotate the roid by 0.2 degrees around the axis...
-    mRotation *= rotate( toRadians( 0.2f ), normalize( vec3( 1, 1, 0 ) ) );
+    mRotation *= rotate( toRadians( mRotSpeed ), normalize( mRotAxis ) );
 
     //gl::rotate(rotation);
 	mEarth->getGlslProg()->uniform( "lightDir", mLightDir );
@@ -59,6 +64,7 @@ void Roid::update()
 
 void Roid::draw()
 {
+    gl::pushModelMatrix();
     
     //std::cout<<"earth.draw"<<std::endl;
     
@@ -68,6 +74,9 @@ void Roid::draw()
 	gl::ScopedTextureBind tex2( mTexMask, 2 );
 
     //apply rotation as matrix transform...
+    gl::translate(mX,mY);
+
     gl::multModelMatrix( mRotation );
     mEarth->draw();
+    gl::popModelMatrix();
 }

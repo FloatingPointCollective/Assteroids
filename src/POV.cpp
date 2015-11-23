@@ -26,7 +26,7 @@ void POV::update()
 	mEyeNormal = glm::normalize( mEye - mCenter );
 
 	mCam.lookAt( mEye, mCenter );
-	mCam.setPerspective( mFOV, mApp->getWindowAspectRatio(), 1, 20000 );
+	//mCam.setPerspective( mFOV, mApp->getWindowAspectRatio(), 1, 20000 );
 
 	ci::gl::setMatrices( mCam );
 }
