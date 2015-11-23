@@ -20,6 +20,7 @@ class AssteroidsApp : public App {
     
     POV               mPov;
     Roid             mRoid;
+    Roid             mRoid2;
     
 };
 
@@ -33,6 +34,8 @@ void AssteroidsApp::prepareSettings( Settings *settings )
 
 void AssteroidsApp::setup()
 {
+
+    mRoid = Roid(150);
     
     // Create the camera controller.
     mPov = POV( this, ci::vec3( 0.0f, 0.0f, 1000.0f ), ci::vec3( 0.0f, 0.0f, 0.0f ) );
@@ -48,6 +51,7 @@ void AssteroidsApp::update()
 {
     mPov.update();
     mRoid.update();
+    mRoid2.update();
 }
 
 void AssteroidsApp::draw()
@@ -61,6 +65,10 @@ void AssteroidsApp::draw()
     
     // Draw roid.
     mRoid.draw();
+    
+    mRoid2.draw();
+    
+    
     
 }
 

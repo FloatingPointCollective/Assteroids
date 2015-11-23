@@ -8,6 +8,8 @@
 class Roid {
 public:
 	Roid();
+    Roid(int radius);
+    void init();
 
 	void update();
 	void draw();
