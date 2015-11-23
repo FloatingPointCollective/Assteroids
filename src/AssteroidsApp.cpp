@@ -2,7 +2,7 @@
 #include "cinder/app/RendererGl.h"
 #include "cinder/gl/gl.h"
 
-#include "Earth.h"
+#include "Roid.h"
 #include "POV.h"
 
 using namespace ci;
@@ -19,7 +19,7 @@ class AssteroidsApp : public App {
 	void draw() override;
     
     POV               mPov;
-    Earth             mEarth;
+    Roid             mRoid;
     
 };
 
@@ -47,7 +47,7 @@ void AssteroidsApp::mouseDown( MouseEvent event )
 void AssteroidsApp::update()
 {
     mPov.update();
-    mEarth.update();
+    mRoid.update();
 }
 
 void AssteroidsApp::draw()
@@ -60,7 +60,7 @@ void AssteroidsApp::draw()
 
     
     // Draw roid.
-    mEarth.draw();
+    mRoid.draw();
     
 }
 

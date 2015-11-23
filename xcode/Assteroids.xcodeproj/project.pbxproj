@@ -18,7 +18,7 @@
 		00B9955B1B128DF400A5C623 /* IOSurface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B995591B128DF400A5C623 /* IOSurface.framework */; };
 		1E2D0337A00F4697B8FCC60B /* AssteroidsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */; };
 		23246FF31C028CCB00AC275E /* POV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23246FF21C028CCB00AC275E /* POV.cpp */; };
-		238FC2121C02854C0020330C /* Earth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2111C02854C0020330C /* Earth.cpp */; };
+		238FC2121C02854C0020330C /* Roid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2111C02854C0020330C /* Roid.cpp */; };
 		238FC2181C02857C0020330C /* earth.frag in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2131C02857C0020330C /* earth.frag */; };
 		238FC2191C02857C0020330C /* earth.vert in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2141C02857C0020330C /* earth.vert */; };
 		238FC21A1C02857C0020330C /* earthDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2151C02857C0020330C /* earthDiffuse.png */; };
@@ -42,8 +42,8 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		23246FF21C028CCB00AC275E /* POV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = POV.cpp; path = ../src/POV.cpp; sourceTree = "<group>"; };
 		23246FF41C028CD900AC275E /* POV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = POV.h; path = ../include/POV.h; sourceTree = "<group>"; };
-		238FC2101C0285290020330C /* Earth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Earth.h; path = ../include/Earth.h; sourceTree = "<group>"; };
-		238FC2111C02854C0020330C /* Earth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Earth.cpp; path = ../src/Earth.cpp; sourceTree = "<group>"; };
+		238FC2101C0285290020330C /* Roid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Roid.h; path = ../include/Roid.h; sourceTree = "<group>"; };
+		238FC2111C02854C0020330C /* Roid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Roid.cpp; path = ../src/Roid.cpp; sourceTree = "<group>"; };
 		238FC2131C02857C0020330C /* earth.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = earth.frag; path = ../resources/earth.frag; sourceTree = "<group>"; };
 		238FC2141C02857C0020330C /* earth.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = earth.vert; path = ../resources/earth.vert; sourceTree = "<group>"; };
 		238FC2151C02857C0020330C /* earthDiffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = earthDiffuse.png; path = ../resources/earthDiffuse.png; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				23246FF21C028CCB00AC275E /* POV.cpp */,
-				238FC2111C02854C0020330C /* Earth.cpp */,
+				238FC2111C02854C0020330C /* Roid.cpp */,
 				98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */,
 			);
 			name = Source;
@@ -151,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				23246FF41C028CD900AC275E /* POV.h */,
-				238FC2101C0285290020330C /* Earth.h */,
+				238FC2101C0285290020330C /* Roid.h */,
 				34C581EF507E46628967AEC9 /* Resources.h */,
 				278B415E07794D84B61A7319 /* Assteroids_Prefix.pch */,
 			);
@@ -250,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23246FF31C028CCB00AC275E /* POV.cpp in Sources */,
-				238FC2121C02854C0020330C /* Earth.cpp in Sources */,
+				238FC2121C02854C0020330C /* Roid.cpp in Sources */,
 				1E2D0337A00F4697B8FCC60B /* AssteroidsApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
