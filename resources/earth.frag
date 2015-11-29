@@ -22,17 +22,17 @@ void main()
 	
 	
 	// use green channel for land elevation data
-	float landValue			= texSample.g;
+	float landValue			= 1;
 
 	// use blue channel for ocean elevation data
-	float oceanValue		= texSample.b;
+	float oceanValue		= 1;
 
 	
 	vec3 ppNormal			= normalize( vertNormal + normalSample );
 	float ppDiffuse			= abs( dot( ppNormal, lightDir ) );
 	float ppFresnel			= pow( ( 1.0 - ppDiffuse ), 3.0 );
 	float ppSpecular		= pow( ppDiffuse, 10.0 );
-	float ppSpecularBright	= pow( ppDiffuse, 120.0 );
+	float ppSpecularBright	= pow( ppDiffuse, 100.0 );
 	
 	
 	// use red channel for nighttime city lights

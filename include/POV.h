@@ -3,6 +3,9 @@
 #include "cinder/Camera.h"
 #include "cinder/app/App.h"
 
+
+using namespace ci;
+
 class POV {
 public:
 	POV() {}
@@ -16,10 +19,10 @@ public:
 	void setCenter( ci::vec3 v );
 
 public:
-	ci::CameraPersp  mCam;
-	ci::vec3         mEye;
-	ci::vec3         mCenter;
-	ci::vec3         mEyeNormal;
+	CameraPersp  mCam;
+	vec3         mEye;
+	vec3         mCenter;
+	vec3         mEyeNormal;
 
 	float            mAngle, mAngleDest;
 	float            mDist, mDistDest;

@@ -33,7 +33,9 @@ Roid::Roid(int radius, int x, int y, vec3 rotAxis, float rotSpeed): mRadius( rad
 
 void Roid::init()
 {
-    mLightDir = glm::normalize( vec3( 1.025f, 0.25f, 1.0f ) );
+    mLightDir = glm::normalize( vec3( 0.025f, 0.25f, 1.0f ) );
+
+//    mLightDir = glm::normalize( vec3( 1.025f, 1.25f, 1.0f ) );
     
     // Load the textures for the Earth.
     auto fmt = gl::Texture2d::Format().wrap( GL_REPEAT ).mipmap().minFilter( GL_LINEAR_MIPMAP_LINEAR );
@@ -43,9 +45,10 @@ void Roid::init()
     
     // Create the Earth mesh with a custom shader.
     auto earthShader = gl::GlslProg::create( loadResource( RES_PASSTHRU_VERT ), loadResource( RES_EARTH_FRAG ) );
-    earthShader->uniform( "texDiffuse", 0 );
+  //  earthShader->uniform( "texDiffuse", 0 );
     earthShader->uniform( "texNormal", 1 );
     earthShader->uniform( "texMask", 2 );
+    
     mEarth = gl::Batch::create( geom::Sphere().radius( mRadius ).subdivisions( 120 ), earthShader );
     
     //rotation = 0;

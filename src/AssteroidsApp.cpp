@@ -19,7 +19,7 @@ class AssteroidsApp : public App {
 	void update() override;
 	void draw() override;
     
-    POV               mPov;
+    POV              mPov;
     Roid             mRoid, mRoid2, mRoid3;
     
 };
@@ -30,6 +30,7 @@ void AssteroidsApp::prepareSettings( Settings *settings )
     settings->disableFrameRate();
     settings->setResizable( true );
     settings->setFullScreen( false );
+    
 }
 
 void AssteroidsApp::setup()
@@ -37,7 +38,7 @@ void AssteroidsApp::setup()
 
     mRoid = Roid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
     mRoid2 = Roid(50,-100,-100, randVec3(), randFloat(-1,1)/2);
-    mRoid3 = Roid(50,-100,50, randVec3(), randFloat(-1,1)/2);
+    mRoid3 = Roid(50,-80,30, randVec3(), randFloat(-1,1)/2);
     
     // Create the camera controller.
     mPov = POV( this, ci::vec3( 0.0f, 0.0f, 1000.0f ), ci::vec3( 0.0f, 0.0f, 0.0f ) );
