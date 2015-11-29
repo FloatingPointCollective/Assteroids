@@ -30,7 +30,9 @@ void main()
 	
 	vec3 ppNormal			= normalize( vertNormal + normalSample );
 	float ppDiffuse			= abs( dot( ppNormal, lightDir ) );
-	float ppFresnel			= pow( ( 1.0 - ppDiffuse ), 3.0 );
+    //amount of surface reflection based on viewing angle...
+	//float ppFresnel			= pow( ( 1.0 - ppDiffuse ), 3.0 );
+    float ppFresnel = 0;
 	float ppSpecular		= pow( ppDiffuse, 10.0 );
 	float ppSpecularBright	= pow( ppDiffuse, 100.0 );
 	
