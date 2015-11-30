@@ -19,6 +19,8 @@
 		1E2D0337A00F4697B8FCC60B /* AssteroidsApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */; };
 		23246FF31C028CCB00AC275E /* POV.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23246FF21C028CCB00AC275E /* POV.cpp */; };
 		23246FF61C0BA00100AC275E /* roidNormal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 23246FF51C0BA00100AC275E /* roidNormal.jpg */; };
+		23246FFE1C0BC16D00AC275E /* bps.h in Sources */ = {isa = PBXBuildFile; fileRef = 23246FFA1C0BC16D00AC275E /* bps.h */; };
+		23246FFF1C0BC16D00AC275E /* ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23246FFC1C0BC16D00AC275E /* ParticleSystem.cpp */; };
 		238FC2121C02854C0020330C /* Roid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 238FC2111C02854C0020330C /* Roid.cpp */; };
 		238FC2181C02857C0020330C /* earth.frag in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2131C02857C0020330C /* earth.frag */; };
 		238FC2191C02857C0020330C /* earth.vert in Resources */ = {isa = PBXBuildFile; fileRef = 238FC2141C02857C0020330C /* earth.vert */; };
@@ -44,6 +46,10 @@
 		23246FF21C028CCB00AC275E /* POV.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = POV.cpp; path = ../src/POV.cpp; sourceTree = "<group>"; };
 		23246FF41C028CD900AC275E /* POV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = POV.h; path = ../include/POV.h; sourceTree = "<group>"; };
 		23246FF51C0BA00100AC275E /* roidNormal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = roidNormal.jpg; path = ../resources/roidNormal.jpg; sourceTree = "<group>"; };
+		23246FFA1C0BC16D00AC275E /* bps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bps.h; path = ../src/bps.h; sourceTree = "<group>"; };
+		23246FFB1C0BC16D00AC275E /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Particle.h; path = ../src/Particle.h; sourceTree = "<group>"; };
+		23246FFC1C0BC16D00AC275E /* ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleSystem.cpp; path = ../src/ParticleSystem.cpp; sourceTree = "<group>"; };
+		23246FFD1C0BC16D00AC275E /* ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleSystem.h; path = ../src/ParticleSystem.h; sourceTree = "<group>"; };
 		238FC2101C0285290020330C /* Roid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Roid.h; path = ../include/Roid.h; sourceTree = "<group>"; };
 		238FC2111C02854C0020330C /* Roid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Roid.cpp; path = ../src/Roid.cpp; sourceTree = "<group>"; };
 		238FC2131C02857C0020330C /* earth.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = earth.frag; path = ../resources/earth.frag; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				23246FF91C0BC14E00AC275E /* ParticleSystem */,
 				23246FF21C028CCB00AC275E /* POV.cpp */,
 				238FC2111C02854C0020330C /* Roid.cpp */,
 				98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */,
@@ -134,6 +141,17 @@
 				8D1107320486CEB800E47090 /* Assteroids.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		23246FF91C0BC14E00AC275E /* ParticleSystem */ = {
+			isa = PBXGroup;
+			children = (
+				23246FFA1C0BC16D00AC275E /* bps.h */,
+				23246FFB1C0BC16D00AC275E /* Particle.h */,
+				23246FFC1C0BC16D00AC275E /* ParticleSystem.cpp */,
+				23246FFD1C0BC16D00AC275E /* ParticleSystem.h */,
+			);
+			name = ParticleSystem;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* Assteroids */ = {
@@ -254,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				23246FF31C028CCB00AC275E /* POV.cpp in Sources */,
+				23246FFE1C0BC16D00AC275E /* bps.h in Sources */,
 				238FC2121C02854C0020330C /* Roid.cpp in Sources */,
+				23246FFF1C0BC16D00AC275E /* ParticleSystem.cpp in Sources */,
 				1E2D0337A00F4697B8FCC60B /* AssteroidsApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

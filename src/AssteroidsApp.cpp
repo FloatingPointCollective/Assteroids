@@ -5,6 +5,7 @@
 
 #include "Roid.h"
 #include "POV.h"
+#include "bps.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -13,14 +14,18 @@ using namespace std;
 class AssteroidsApp : public App {
   public:
     static void prepareSettings( Settings *settings );
+    void addRoid(int radius, int x, int y, vec3 rAxis, float rSpeed);
 
 	void setup() override;
 	void mouseDown( MouseEvent event ) override;
 	void update() override;
 	void draw() override;
+    vector<Roid> roids;
+
     
-    POV              mPov;
-    Roid             mRoid, mRoid2, mRoid3;
+    POV     mPov;
+    Roid    mRoid, mRoid2, mRoid3;
+    bps     mBPS;
     
 };
 
@@ -35,13 +40,26 @@ void AssteroidsApp::prepareSettings( Settings *settings )
 
 void AssteroidsApp::setup()
 {
+    
+    addRoid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
+    addRoid(50, -50, 50, randVec3(), randFloat(-1,1)/2);
+    addRoid(50, 0, -50, randVec3(), randFloat(-1,1)/2);
 
-    mRoid = Roid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
-    mRoid2 = Roid(50,-100,-100, randVec3(), randFloat(-1,1)/2);
-    mRoid3 = Roid(50,-80,30, randVec3(), randFloat(-1,1)/2);
+  //  mRoid = Roid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
+    
+    //mRoid2 = Roid(50,-100,-100, randVec3(), randFloat(-1,1)/2);
+    //mRoid3 = Roid(50,-80,30, randVec3(), randFloat(-1,1)/2);
     
     // Create the camera controller.
     mPov = POV( this, ci::vec3( 0.0f, 0.0f, 1000.0f ), ci::vec3( 0.0f, 0.0f, 0.0f ) );
+
+    mBPS.setup(1);
+    
+}
+
+void AssteroidsApp::addRoid(int radius, int x, int y, vec3 rAxis, float rSpeed){
+    Roid roid = Roid(radius, x, y, rAxis, rSpeed);
+    roids.push_back(roid);
 }
 
 void AssteroidsApp::mouseDown( MouseEvent event )
@@ -50,10 +68,18 @@ void AssteroidsApp::mouseDown( MouseEvent event )
 
 void AssteroidsApp::update()
 {
+    mBPS.update();
+
     mPov.update();
-    mRoid.update();
-    mRoid2.update();
-    mRoid3.update();
+    
+    for (auto &roid : roids)
+    {
+        roid.update();
+    }
+    
+   // mRoid.update();
+  //  mRoid2.update();
+  //  mRoid3.update();
 }
 
 void AssteroidsApp::draw()
@@ -61,15 +87,22 @@ void AssteroidsApp::draw()
     
     gl::clear( Color( 0, 0, 0 ) );
 
-    gl::ScopedDepth       depth( true );
+    //gl::ScopedDepth       depth( true );
     gl::ScopedColor       color( 1, 1, 1 );
-
     
     // Draw roid.
-    mRoid.draw();
-    mRoid2.draw();
-    mRoid3.draw();
+    for (auto &roid : roids)
+    {
+        roid.draw();
+    }
+    
+   // mRoid.draw();
+   // mRoid2.draw();
+   // mRoid3.draw();
 
+    //draw particle system
+    gl::translate(-getWindowWidth()/2,-getWindowHeight()/2);
+    mBPS.draw();
     
 }
 

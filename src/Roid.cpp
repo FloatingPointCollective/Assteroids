@@ -76,9 +76,10 @@ void Roid::draw()
 	gl::ScopedTextureBind tex1( mTexNormal, 1 );
 	gl::ScopedTextureBind tex2( mTexMask, 2 );
 
-    //apply rotation as matrix transform...
+    //
     gl::translate(mX,mY);
-
+    
+    //apply rotation as matrix transform...
     gl::multModelMatrix( mRotation );
     mEarth->draw();
     gl::popModelMatrix();
