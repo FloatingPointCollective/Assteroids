@@ -57,6 +57,12 @@ public:
 		xf = xf - xv * damping;
     yf = yf - yv * damping;
 	}
+    
+    void applyForce(vec2 f){
+        xv += f.x;
+        yv += f.y;
+    }
+    
 	void draw() {
         cinder::gl::vertex(x, y);
 	}

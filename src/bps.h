@@ -23,6 +23,7 @@ class bps {
 	void setup(int kParticles, vector<Roid> *roids);
 	void update();
 	void draw();
+    vec2 getField(vec2 position);
 	
 	void keyDown( KeyEvent event );
 	void mouseDown( MouseEvent event);
@@ -89,6 +90,7 @@ void bps::draw()
     gl::color(1.0f, 1.0f, 1.0f, lineOpacity);
 	
 	particleSystem.setupForces();
+    vec2 pos;
     
 	// apply per-particle forces
     gl::begin(GL_LINES);
@@ -99,6 +101,11 @@ void bps::draw()
 		// forces on this particle
 		cur.bounceOffWalls(0, 0, getWindowWidth(), getWindowHeight());
 		cur.addDampingForce();
+        
+        //apply noise field force to the particle
+        pos.x = cur.x;
+        pos.y = cur.y;
+        cur.applyForce(getField(pos));
 	}
     gl::end();
     
@@ -123,6 +130,26 @@ void bps::draw()
     gl::color(1.0f, 1.0f, 1.0f);
 	//gl::drawString( toString( kParticles ) + "k particles", vec2(32.0f, 32.0f));
 	//gl::drawString( toString((int) getAverageFps()) + " fps", vec2(32.0f, 52.0f));
+}
+
+/*
+ This is the magic method that samples a 2d slice of the 3d noise field. When
+ you call this method with a position, it returns a direction (a 2d vector). The
+ trick behind this method is that the u,v values for the field are taken from
+ out-of-phase slices in the first dimension: t + phase for the u, and t - phase
+ for the v.
+ */
+//--------------------------------------------------------------
+vec2 bps::getField(vec2 position) {
+    float normx = normalize(vec3(position.x, 0, getWindowWidth()));
+    float normy = ofNormalize(position.y, 0, getWindowHeight());
+    
+    float u = -ofNoise(t + phase, normx * complexity + phase, normy * complexity + phase);
+    float v = .5-ofNoise(t - phase, normx * complexity - phase, normy * complexity + phase);
+    u*=hForce;
+    v*=vForce;
+    
+    return ofVec2f(u, v);
 }
 
 
