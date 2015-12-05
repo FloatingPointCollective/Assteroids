@@ -11,6 +11,8 @@ using namespace ci;
 using namespace ci::app;
 
 /*
+   BINNED PARTCILE SYSTEM controller
+ 
    ALL CREDIT for this code goes to KYLE MCDONALD and his original OF version
    posted here http://www.openframeworks.cc/forum/viewtopic.php?f=12&t=2860
 */
@@ -18,7 +20,7 @@ using namespace ci::app;
 // BPS stands for Binned Particle System
 class bps {
  public:	
-	void setup(int kParticles);
+	void setup(int kParticles, vector<Roid> *roids);
 	void update();
 	void draw();
 	
@@ -37,9 +39,11 @@ class bps {
 	int mKParticles;
 	ParticleSystem particleSystem;
 	bool isMousePressed, slowMotion;
+    
+    vector<Roid> *mRoids;
 };
 
-void bps::setup(int kParticles){
+void bps::setup(int kParticles, vector<Roid> *roids){
 	// this number describes how many bins are used
 	// on my machine, 2 is the ideal number (2^2 = 4x4 pixel bins)
 	// if this number is too high, binning is not effective
@@ -47,6 +51,8 @@ void bps::setup(int kParticles){
 	// it's too low, the bins take up so much memory as to
 	// become inefficient.
 	int binPower = 4;
+    
+    mRoids = roids;
 	
 	particleSystem.setup(getWindowWidth(), getWindowHeight(), binPower);
 	
@@ -95,8 +101,18 @@ void bps::draw()
 		cur.addDampingForce();
 	}
     gl::end();
+    
+    //add repulsion forces for each assteroid
+    for (auto roid : *mRoids)
+    {
+        cout<<"roid.x"<<roid.x<<endl;
+        cout<<"roid.y"<<roid.y<<endl;
+        particleSystem.addRepulsionForce(roid.x+getWindowWidth()/2, roid.y+getWindowHeight()/2, roid.radius, 10);
+    }
+    
 	// single global forces
 	particleSystem.addAttractionForce(getWindowWidth()/2, getWindowHeight()/2, getWindowWidth(), centerAttraction);
+    
 	if(isMousePressed)
 		particleSystem.addRepulsionForce(mouse.x, mouse.y, 100, 10);
 	particleSystem.update();

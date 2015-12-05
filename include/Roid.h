@@ -20,7 +20,7 @@ public:
 	//static const int MAX_NUMBER_OF_QUAKES = 1024;
 
 	float mMinMagToRender;
-	float mRadius, mX, mY;
+	float radius, x, y;
     float mRotSpeed;
     cinder::mat4				mRotation;
    // ci::quat rotation;

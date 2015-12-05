@@ -17,14 +17,13 @@
 using namespace ci;
 using namespace ci::app;
 
-Roid::Roid(): mRadius( 100 ), mMinMagToRender( 2 )
+Roid::Roid(): radius( 100 ), mMinMagToRender( 2 )
 {
     init();
 }
 
-Roid::Roid(int radius, int x, int y, vec3 rotAxis, float rotSpeed): mRadius( radius ){
-    mX = x;
-    mY = y;
+Roid::Roid(int radius, int x, int y, vec3 rotAxis, float rotSpeed):
+radius( radius ), x(x), y(y){
     mRotSpeed = rotSpeed;
     mRotAxis = rotAxis;
     
@@ -49,7 +48,7 @@ void Roid::init()
     earthShader->uniform( "texNormal", 1 );
     earthShader->uniform( "texMask", 2 );
     
-    mEarth = gl::Batch::create( geom::Sphere().radius( mRadius ).subdivisions( 120 ), earthShader );
+    mEarth = gl::Batch::create( geom::Sphere().radius( radius ).subdivisions( 120 ), earthShader );
     
     //rotation = 0;
 }
@@ -77,7 +76,7 @@ void Roid::draw()
 	gl::ScopedTextureBind tex2( mTexMask, 2 );
 
     //
-    gl::translate(mX,mY);
+    gl::translate(x,y);
     
     //apply rotation as matrix transform...
     gl::multModelMatrix( mRotation );

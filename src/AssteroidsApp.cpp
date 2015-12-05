@@ -24,7 +24,7 @@ class AssteroidsApp : public App {
 
     
     POV     mPov;
-    Roid    mRoid, mRoid2, mRoid3;
+    //Roid    mRoid, mRoid2, mRoid3;
     bps     mBPS;
     
 };
@@ -44,6 +44,8 @@ void AssteroidsApp::setup()
     addRoid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
     addRoid(50, -50, 50, randVec3(), randFloat(-1,1)/2);
     addRoid(50, 0, -50, randVec3(), randFloat(-1,1)/2);
+    
+    //addRoid(100, 0, 0, randVec3(), randFloat(-1,1)/2);
 
   //  mRoid = Roid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
     
@@ -53,7 +55,7 @@ void AssteroidsApp::setup()
     // Create the camera controller.
     mPov = POV( this, ci::vec3( 0.0f, 0.0f, 1000.0f ), ci::vec3( 0.0f, 0.0f, 0.0f ) );
 
-    mBPS.setup(1);
+    mBPS.setup(2, & roids);
     
 }
 

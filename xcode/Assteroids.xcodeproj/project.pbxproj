@@ -102,6 +102,7 @@
 			children = (
 				23246FF91C0BC14E00AC275E /* ParticleSystem */,
 				23246FF21C028CCB00AC275E /* POV.cpp */,
+				238FC2101C0285290020330C /* Roid.h */,
 				238FC2111C02854C0020330C /* Roid.cpp */,
 				98BED8DE1F094C6F843B6720 /* AssteroidsApp.cpp */,
 			);
@@ -171,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				23246FF41C028CD900AC275E /* POV.h */,
-				238FC2101C0285290020330C /* Roid.h */,
 				34C581EF507E46628967AEC9 /* Resources.h */,
 				278B415E07794D84B61A7319 /* Assteroids_Prefix.pch */,
 			);
