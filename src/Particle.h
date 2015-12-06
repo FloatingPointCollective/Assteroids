@@ -58,7 +58,7 @@ public:
     yf = yf - yv * damping;
 	}
     
-    void applyForce(vec2 f){
+    void applyForce(ci::vec2 f){
         xv += f.x;
         yv += f.y;
     }

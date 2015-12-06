@@ -6,6 +6,7 @@
 #include "cinder/Utilities.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Rand.h"
+#include "cinder/Perlin.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -42,6 +43,10 @@ class bps {
 	bool isMousePressed, slowMotion;
     
     vector<Roid> *mRoids;
+    
+    Perlin				mPerlin;
+    float				mAnimationCounter;
+
 };
 
 void bps::setup(int kParticles, vector<Roid> *roids){
@@ -76,10 +81,16 @@ void bps::setup(int kParticles, vector<Roid> *roids){
 	particleNeighborhood = 14;
 	particleRepulsion = .5;
 	centerAttraction = .05;
+    
+    
+    mAnimationCounter = 0.0f;
+
 }
 
 void bps::update(){
 	particleSystem.setTimeStep(timeStep);
+    // Move ahead in time, which becomes the z-axis of our 3D noise.
+    mAnimationCounter += 10.0f;
 }
 
 void bps::draw()
@@ -103,9 +114,18 @@ void bps::draw()
 		cur.addDampingForce();
         
         //apply noise field force to the particle
-        pos.x = cur.x;
+        /*pos.x = cur.x;
         pos.y = cur.y;
-        cur.applyForce(getField(pos));
+        cur.applyForce(getField(pos));*/
+        
+        // Add some perlin noise to the velocity.
+        vec3 deriv = mPerlin.dfBm( vec3( cur.x, cur.y, mAnimationCounter ) * 0.001f );
+        //particle.mZ = deriv.z;
+       // vec2 deriv2 = normalize( vec2( deriv.x, deriv.y ) );
+        int softness = 100;
+        vec2 deriv2 = vec2( deriv.x/softness, deriv.y/softness );
+        cur.applyForce(deriv2);
+        //particle.mVelocity += deriv2 * mSpeed;
 	}
     gl::end();
     
@@ -141,7 +161,7 @@ void bps::draw()
  */
 //--------------------------------------------------------------
 vec2 bps::getField(vec2 position) {
-    float normx = normalize(vec3(position.x, 0, getWindowWidth()));
+    /*float normx = normalize(vec3(position.x, 0, getWindowWidth()));
     float normy = ofNormalize(position.y, 0, getWindowHeight());
     
     float u = -ofNoise(t + phase, normx * complexity + phase, normy * complexity + phase);
@@ -149,7 +169,7 @@ vec2 bps::getField(vec2 position) {
     u*=hForce;
     v*=vForce;
     
-    return ofVec2f(u, v);
+    return ofVec2f(u, v);*/
 }
 
 
