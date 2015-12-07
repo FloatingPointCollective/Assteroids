@@ -1,1 +1,5 @@
 *.app
+xcode/build/Assteroids.build/
+xcode/Assteroids.xcodeproj/project.xcworkspace/xcuserdata/kalicious.xcuserdatad/UserInterfaceState.xcuserstate
+
+xcode/build/Assteroids.build/Debug/Assteroids.build/dgph~

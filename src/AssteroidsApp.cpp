@@ -18,6 +18,8 @@ class AssteroidsApp : public App {
 
 	void setup() override;
 	void mouseDown( MouseEvent event ) override;
+    void mouseUp( MouseEvent event ) override;
+    void mouseDrag( MouseEvent event ) override;
 	void update() override;
 	void draw() override;
     vector<Roid> roids;
@@ -34,16 +36,16 @@ void AssteroidsApp::prepareSettings( Settings *settings )
     settings->setWindowSize( 1024, 768 );
     settings->disableFrameRate();
     settings->setResizable( true );
-    settings->setFullScreen( false );
+    settings->setFullScreen( true );
     
 }
 
 void AssteroidsApp::setup()
 {
     
-    addRoid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
-    addRoid(50, -50, 50, randVec3(), randFloat(-1,1)/2);
-    addRoid(50, 0, -50, randVec3(), randFloat(-1,1)/2);
+    addRoid(50, 100, 100, randVec3(), randFloat(-1,1)/2);
+    addRoid(50, -100, 100, randVec3(), randFloat(-1,1)/2);
+    addRoid(50, 0, -100, randVec3(), randFloat(-1,1)/2);
     
     //addRoid(100, 0, 0, randVec3(), randFloat(-1,1)/2);
 
@@ -62,10 +64,6 @@ void AssteroidsApp::setup()
 void AssteroidsApp::addRoid(int radius, int x, int y, vec3 rAxis, float rSpeed){
     Roid roid = Roid(radius, x, y, rAxis, rSpeed);
     roids.push_back(roid);
-}
-
-void AssteroidsApp::mouseDown( MouseEvent event )
-{
 }
 
 void AssteroidsApp::update()
@@ -106,6 +104,21 @@ void AssteroidsApp::draw()
     gl::translate(-getWindowWidth()/2,-getWindowHeight()/2);
     mBPS.draw();
     
+}
+
+void AssteroidsApp::mouseDown( MouseEvent event )
+{
+    mBPS.mouseDown(event);
+}
+
+void AssteroidsApp::mouseUp( MouseEvent event )
+{
+    mBPS.mouseUp(event);
+}
+
+void AssteroidsApp::mouseDrag( MouseEvent event )
+{
+    mBPS.mouseDrag(event);
 }
 
 //CINDER_APP( AssteroidsApp, RendererGl )

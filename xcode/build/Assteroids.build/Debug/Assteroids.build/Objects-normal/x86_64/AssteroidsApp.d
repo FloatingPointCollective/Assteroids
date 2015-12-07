@@ -332,4 +332,5 @@ dependencies: /Volumes/HDD/CinderApps/Assteroids/src/AssteroidsApp.cpp \
   ../../cinder_0.9.0_mac/include/boost/math/tools/real_cast.hpp \
   ../../cinder_0.9.0_mac/include/boost/integer.hpp \
   ../../cinder_0.9.0_mac/include/boost/integer_fwd.hpp \
-  ../../cinder_0.9.0_mac/include/boost/detail/basic_pointerbuf.hpp
+  ../../cinder_0.9.0_mac/include/boost/detail/basic_pointerbuf.hpp \
+  ../../cinder_0.9.0_mac/include/cinder/Perlin.h

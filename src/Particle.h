@@ -53,11 +53,19 @@ public:
 			yv *= damping;
 		}
 	}
+    
 	void addDampingForce(float damping = .01) {
 		xf = xf - xv * damping;
-    yf = yf - yv * damping;
+        yf = yf - yv * damping;
 	}
+    
+    void applyForce(ci::vec2 f){
+        xv += f.x;
+        yv += f.y;
+    }
+    
 	void draw() {
-        cinder::gl::vertex(x, y);
+        //cinder::gl::vertex(x, y);
+        ci::gl::drawSolidCircle(ci::vec2(x,y), 1);
 	}
 };
