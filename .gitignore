@@ -1,10 +1,2 @@
 *.app
-xcode/build/Assteroids.build/Debug/Assteroids.build/dgph~
-
-xcode/build/Assteroids.build/Debug/Assteroids.build/dgph
-
-xcode/Assteroids.xcodeproj/xcuserdata/kalicious.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-
-xcode/Assteroids.xcodeproj/xcuserdata/kalicious.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
-
-xcode/build/Assteroids.build/Debug/Assteroids.build/dgph
+xcode/build/Assteroids.build/
