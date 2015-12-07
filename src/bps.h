@@ -64,7 +64,7 @@ void bps::setup(int kParticles, vector<Roid> *roids){
 	
 	//mKParticles = kParticles;
 	float padding = 0;
-	float maxVelocity = .5;
+	float maxVelocity = .05;
 	for(int i = 0; i < kParticles * 1024; i++) {
 		float x = Rand::randFloat(padding, getWindowWidth() - padding);
 		float y = Rand::randFloat(padding, getWindowHeight() - padding);
@@ -75,7 +75,7 @@ void bps::setup(int kParticles, vector<Roid> *roids){
 	}
 	
 	timeStep = 1;
-	lineOpacity = 0.12f;
+	lineOpacity = 0.1f;
 	pointOpacity = 0.5f;
 	slowMotion = false;
 	particleNeighborhood = 14;
@@ -97,6 +97,14 @@ void bps::draw()
 {
     
 	//gl::clear();
+    
+    //gl::color( 0, 0, 0, .5 );
+    //gl::drawSolidRect( Rectf( 0,0, getWindowWidth(), getWindowHeight()));
+    
+    //gl::enableAlphaBlending();
+    //gl::color(ColorA( 0, 0, 0, 0.9f));
+    //gl::drawSolidRect(getWindowBounds());
+    
 	gl::enableAdditiveBlending();
     gl::color(1.0f, 1.0f, 1.0f, lineOpacity);
 	
@@ -109,9 +117,6 @@ void bps::draw()
 		Particle& cur = particleSystem[i];
 		// global force on other particles
 		particleSystem.addRepulsionForce(cur, particleNeighborhood, particleRepulsion);
-		// forces on this particle
-		cur.bounceOffWalls(0, 0, getWindowWidth(), getWindowHeight());
-		cur.addDampingForce();
         
         //apply noise field force to the particle
         /*pos.x = cur.x;
@@ -122,26 +127,41 @@ void bps::draw()
         vec3 deriv = mPerlin.dfBm( vec3( cur.x, cur.y, mAnimationCounter ) * 0.001f );
         //particle.mZ = deriv.z;
        // vec2 deriv2 = normalize( vec2( deriv.x, deriv.y ) );
-        int softness = 100;
+        int softness = 50;
         vec2 deriv2 = vec2( deriv.x/softness, deriv.y/softness );
         cur.applyForce(deriv2);
         //particle.mVelocity += deriv2 * mSpeed;
+        
+        // forces on this particle
+        int padding = 200;
+        cur.bounceOffWalls(padding, padding, getWindowWidth()-padding, getWindowHeight()-padding);
+        cur.addDampingForce();
+
 	}
     gl::end();
     
     //add repulsion forces for each assteroid
     for (auto roid : *mRoids)
     {
-        cout<<"roid.x"<<roid.x<<endl;
-        cout<<"roid.y"<<roid.y<<endl;
-        particleSystem.addRepulsionForce(roid.x+getWindowWidth()/2, roid.y+getWindowHeight()/2, roid.radius, 10);
+       // cout<<"roid.x"<<roid.x<<endl;
+       // cout<<"roid.y"<<roid.y<<endl;
+        particleSystem.addRepulsionForce(roid.x+getWindowWidth()/2, roid.y+getWindowHeight()/2, roid.radius+20, 1);
     }
     
+    //add repulsive force for 4 corners
+   /* int size = getWindowWidth()/4;
+    int power = 1;
+    particleSystem.addRepulsionForce(0,0,size, power);
+    particleSystem.addRepulsionForce(0,getWindowWidth(),size, power);
+    particleSystem.addRepulsionForce(getWindowHeight(),0,size, power);
+    particleSystem.addRepulsionForce(getWindowHeight(),getWindowWidth(),size, power);*/
+    
 	// single global forces
-	particleSystem.addAttractionForce(getWindowWidth()/2, getWindowHeight()/2, getWindowWidth(), centerAttraction);
+	//particleSystem.addAttractionForce(getWindowWidth()/2, getWindowHeight()/2, getWindowWidth(), centerAttraction);
     
 	if(isMousePressed)
-		particleSystem.addRepulsionForce(mouse.x, mouse.y, 100, 10);
+		particleSystem.addAttractionForce(mouse.x, mouse.y, 200, .1);
+    
 	particleSystem.update();
     gl::color(1.0f, 1.0f, 1.0f, pointOpacity);
 	particleSystem.draw();
@@ -150,26 +170,6 @@ void bps::draw()
     gl::color(1.0f, 1.0f, 1.0f);
 	//gl::drawString( toString( kParticles ) + "k particles", vec2(32.0f, 32.0f));
 	//gl::drawString( toString((int) getAverageFps()) + " fps", vec2(32.0f, 52.0f));
-}
-
-/*
- This is the magic method that samples a 2d slice of the 3d noise field. When
- you call this method with a position, it returns a direction (a 2d vector). The
- trick behind this method is that the u,v values for the field are taken from
- out-of-phase slices in the first dimension: t + phase for the u, and t - phase
- for the v.
- */
-//--------------------------------------------------------------
-vec2 bps::getField(vec2 position) {
-    /*float normx = normalize(vec3(position.x, 0, getWindowWidth()));
-    float normy = ofNormalize(position.y, 0, getWindowHeight());
-    
-    float u = -ofNoise(t + phase, normx * complexity + phase, normy * complexity + phase);
-    float v = .5-ofNoise(t - phase, normx * complexity - phase, normy * complexity + phase);
-    u*=hForce;
-    v*=vForce;
-    
-    return ofVec2f(u, v);*/
 }
 
 
