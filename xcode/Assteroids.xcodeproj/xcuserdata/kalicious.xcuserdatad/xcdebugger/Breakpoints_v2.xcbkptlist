@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../src/AssteroidsApp.cpp"
-            timestampString = "471122282.391536"
+            timestampString = "471321980.522372"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114">
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "AssteroidsApp::mouseUp( MouseEvent event )"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

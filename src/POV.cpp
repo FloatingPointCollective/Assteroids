@@ -7,12 +7,12 @@ POV::POV( ci::app::App *aApp, ci::vec3 aEye, ci::vec3 aCenter )
 	: mApp( aApp ), mEye( aEye ), mCenter( aCenter )
 {
 	mAspectRatio = mApp->getWindowAspectRatio();
-	mFOV = 60.0f;
+	//mFOV = 60.0f;
 
 	mAngle = 0.0f;
 	mAngleDest = 0.0f;
 	mDist = 500.0f;
-	mDistDest = 500.0f;
+	mDistDest = 1000.0f;
 }
 
 void POV::update()

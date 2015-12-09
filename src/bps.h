@@ -78,7 +78,7 @@ void bps::setup(int kParticles, vector<Roid> *roids){
 	lineOpacity = 0.1f;
 	pointOpacity = 0.5f;
 	slowMotion = false;
-	particleNeighborhood = 14;
+	particleNeighborhood = 10;
 	particleRepulsion = .5;
 	centerAttraction = .05;
     
@@ -111,6 +111,14 @@ void bps::draw()
 	particleSystem.setupForces();
     vec2 pos;
     
+    // forces on this particle
+    int padding = 200;
+    int left = padding;
+    int top = padding;
+    int right = getWindowWidth()-padding;
+    int bottom = getWindowHeight()-padding;
+
+    
 	// apply per-particle forces
     gl::begin(GL_LINES);
 	for(int i = 0; i < particleSystem.size(); i++) {
@@ -128,13 +136,12 @@ void bps::draw()
         //particle.mZ = deriv.z;
        // vec2 deriv2 = normalize( vec2( deriv.x, deriv.y ) );
         int softness = 50;
-        vec2 deriv2 = vec2( deriv.x/softness, deriv.y/softness );
+        vec2 deriv2 = vec2( (deriv.x+1)/softness, deriv.y/softness );
         cur.applyForce(deriv2);
         //particle.mVelocity += deriv2 * mSpeed;
         
-        // forces on this particle
-        int padding = 200;
-        cur.bounceOffWalls(padding, padding, getWindowWidth()-padding, getWindowHeight()-padding);
+        cur.loopAround(padding, padding, getWindowWidth()-padding, getWindowHeight()-padding);
+        
         cur.addDampingForce();
 
 	}
@@ -149,18 +156,18 @@ void bps::draw()
     }
     
     //add repulsive force for 4 corners
-   /* int size = getWindowWidth()/4;
+    int size = getWindowWidth()/10;
     int power = 1;
-    particleSystem.addRepulsionForce(0,0,size, power);
-    particleSystem.addRepulsionForce(0,getWindowWidth(),size, power);
-    particleSystem.addRepulsionForce(getWindowHeight(),0,size, power);
-    particleSystem.addRepulsionForce(getWindowHeight(),getWindowWidth(),size, power);*/
+    /*particleSystem.addRepulsionForce(left,top,size, power);
+    particleSystem.addRepulsionForce(right,top,size, power);
+    particleSystem.addRepulsionForce(left,bottom,size, power);
+    particleSystem.addRepulsionForce(right,bottom,size, power);*/
     
 	// single global forces
 	//particleSystem.addAttractionForce(getWindowWidth()/2, getWindowHeight()/2, getWindowWidth(), centerAttraction);
     
 	if(isMousePressed)
-		particleSystem.addAttractionForce(mouse.x, mouse.y, 200, .1);
+		particleSystem.addAttractionForce(mouse.x, mouse.y, 200, .5);
     
 	particleSystem.update();
     gl::color(1.0f, 1.0f, 1.0f, pointOpacity);
