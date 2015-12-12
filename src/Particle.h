@@ -6,7 +6,7 @@ using namespace std;
 
 class Particle {
 public:
-	float x, y;
+	float x, y, pX, pY;
 	float xv, yv;
 	float xf, yf;
 	Particle(float _x = 0, float _y = 0,
@@ -15,11 +15,14 @@ public:
 		xv(_xv), yv(_yv) {
 	}
 	void updatePosition(float timeStep) {
+        pX = x;
+        pY = y;
 		// f = ma, m = 1, f = a, v = int(a)
 		xv += xf;
 		yv += yf;
 		x += xv * timeStep;
 		y += yv * timeStep;
+        
 	}
 	void resetForce() {
 		xf = 0;
@@ -95,6 +98,19 @@ public:
     
 	void draw() {
         //cinder::gl::vertex(x, y);
+        float o = (10/abs(x-ci::app::getWindowWidth()/2) * 10/abs(y-ci::app::getWindowHeight()/2))*255;
+        
+        cinder::gl::color(255, 255, 255, o);
+        //ci::gl::drawSolidCircle(ci::vec2(x,y), .5*xv*yv);
         ci::gl::drawSolidCircle(ci::vec2(x,y), 1);
+       /* cinder::gl::begin( GL_LINES );
+        //for( auto &particle : mParticles ) {
+            // Color according to velocity.
+           // float mSpeed = .1f;
+           // cinder::gl::color( 0.5f + xv / ( mSpeed * 2 ), 0.5f + yv / ( mSpeed * 2 ), 0.5f + xv * 0.5f );
+            cinder::gl::vertex( ci::vec2(pX,pY) );
+            cinder::gl::vertex( ci::vec2(x,y) );
+       // }
+        cinder::gl::end();*/
 	}
 };

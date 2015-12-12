@@ -75,8 +75,8 @@ void bps::setup(int kParticles, vector<Roid> *roids){
 	}
 	
 	timeStep = 1;
-	lineOpacity = 0.1f;
-	pointOpacity = 0.5f;
+	lineOpacity = 0.3f;
+	pointOpacity = 0.8f;
 	slowMotion = false;
 	particleNeighborhood = 10;
 	particleRepulsion = .5;
@@ -112,11 +112,11 @@ void bps::draw()
     vec2 pos;
     
     // forces on this particle
-    int padding = 200;
-    int left = padding;
+    int padding = 50;
+    /*int left = padding;
     int top = padding;
     int right = getWindowWidth()-padding;
-    int bottom = getWindowHeight()-padding;
+    int bottom = getWindowHeight()-padding;*/
 
     
 	// apply per-particle forces
@@ -136,11 +136,11 @@ void bps::draw()
         //particle.mZ = deriv.z;
        // vec2 deriv2 = normalize( vec2( deriv.x, deriv.y ) );
         int softness = 50;
-        vec2 deriv2 = vec2( (deriv.x+1)/softness, deriv.y/softness );
+        vec2 deriv2 = vec2( (deriv.x+1)/softness, (deriv.y-1)/softness );
         cur.applyForce(deriv2);
         //particle.mVelocity += deriv2 * mSpeed;
         
-        cur.loopAround(padding, padding, getWindowWidth()-padding, getWindowHeight()-padding);
+        cur.loopAround(padding*3, padding, getWindowWidth()-padding*3, getWindowHeight()-padding);
         
         cur.addDampingForce();
 
@@ -156,8 +156,8 @@ void bps::draw()
     }
     
     //add repulsive force for 4 corners
-    int size = getWindowWidth()/10;
-    int power = 1;
+    //int size = getWindowWidth()/10;
+    //int power = 1;
     /*particleSystem.addRepulsionForce(left,top,size, power);
     particleSystem.addRepulsionForce(right,top,size, power);
     particleSystem.addRepulsionForce(left,bottom,size, power);

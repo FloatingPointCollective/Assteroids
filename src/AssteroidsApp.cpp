@@ -34,19 +34,22 @@ class AssteroidsApp : public App {
 
 void AssteroidsApp::prepareSettings( Settings *settings )
 {
+    
     settings->setWindowSize( 1280, 800 );
     settings->disableFrameRate();
     settings->setResizable( true );
-    settings->setFullScreen( false );
+    settings->setFullScreen( true );
     
 }
 
 void AssteroidsApp::setup()
 {
     
-    addRoid(50, 100, 100, randVec3(), randFloat(-1,1)/2);
-    addRoid(50, -100, 100, randVec3(), randFloat(-1,1)/2);
-    addRoid(60, 0, -50, randVec3(), randFloat(-1,1)/2);
+    hideCursor();
+    
+    addRoid(130, -200, -180, randVec3(), randFloat(-1,1)/2);
+    addRoid(120, 100, -150, randVec3(), randFloat(-1,1)/2);
+    //addRoid(60, 0, -50, randVec3(), randFloat(-1,1)/2);
     
     //addRoid(100, 0, 0, randVec3(), randFloat(-1,1)/2);
 
