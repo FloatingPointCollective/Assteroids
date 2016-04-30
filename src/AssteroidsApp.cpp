@@ -47,16 +47,8 @@ void AssteroidsApp::setup()
     
     hideCursor();
     
-    addRoid(130, -200, -180, randVec3(), randFloat(-1,1)/2);
+    addRoid(130, -200, -50, randVec3(), randFloat(-1,1)/2);
     addRoid(120, 100, -150, randVec3(), randFloat(-1,1)/2);
-    //addRoid(60, 0, -50, randVec3(), randFloat(-1,1)/2);
-    
-    //addRoid(100, 0, 0, randVec3(), randFloat(-1,1)/2);
-
-  //  mRoid = Roid(50, 50, 50, randVec3(), randFloat(-1,1)/2);
-    
-    //mRoid2 = Roid(50,-100,-100, randVec3(), randFloat(-1,1)/2);
-    //mRoid3 = Roid(50,-80,30, randVec3(), randFloat(-1,1)/2);
     
     // Create the camera controller.
     mPov = POV( this, ci::vec3( 0.0f, 0.0f, 1000.0f ), ci::vec3( 0.0f, 0.0f, 0.0f ) );
@@ -80,10 +72,7 @@ void AssteroidsApp::update()
     {
         roid.update();
     }
-    
-   // mRoid.update();
-  //  mRoid2.update();
-  //  mRoid3.update();
+  
 }
 
 void AssteroidsApp::draw()
@@ -91,7 +80,6 @@ void AssteroidsApp::draw()
     
     gl::clear( Color( 0, 0, 0 ) );
 
-    //gl::ScopedDepth       depth( true );
     gl::ScopedColor       color( 1, 1, 1 );
     
     // Draw roid.
@@ -99,10 +87,6 @@ void AssteroidsApp::draw()
     {
         roid.draw();
     }
-    
-   // mRoid.draw();
-   // mRoid2.draw();
-   // mRoid3.draw();
 
     //draw particle system
     gl::translate(-getWindowWidth()/2,-getWindowHeight()/2);

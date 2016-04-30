@@ -136,14 +136,12 @@ void bps::draw()
         //particle.mZ = deriv.z;
        // vec2 deriv2 = normalize( vec2( deriv.x, deriv.y ) );
         int softness = 50;
-        vec2 deriv2 = vec2( (deriv.x+1)/softness, (deriv.y-1)/softness );
+        vec2 deriv2 = vec2( (deriv.x-.7)/softness, (deriv.y+1)/softness );
         cur.applyForce(deriv2);
         //particle.mVelocity += deriv2 * mSpeed;
         
         cur.loopAround(padding*3, padding, getWindowWidth()-padding*3, getWindowHeight()-padding);
-        
         cur.addDampingForce();
-
 	}
     gl::end();
     
