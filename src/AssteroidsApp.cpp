@@ -47,6 +47,12 @@ void AssteroidsApp::setup()
     
     hideCursor();
     
+    //we add assteroids here
+    //FOR EXAMPLE
+    //addRoid(RADIUS, X, Y, speed of rotation, randFloat(-1,1)/2);
+    //***
+
+    
     addRoid(130, -200, -50, randVec3(), randFloat(-1,1)/2);
     addRoid(120, 100, -150, randVec3(), randFloat(-1,1)/2);
     
